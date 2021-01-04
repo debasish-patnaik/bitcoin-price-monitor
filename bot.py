@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BITCOIN_API_URL = 'https://api.wazirx.com/api/v2/tickers'
+IFTTT_URL = 'https://maker.ifttt.com/trigger/bitcoin_alert/with/key/'
 
 
 def get_latest_bitcoin_price():
@@ -16,3 +17,9 @@ def get_latest_bitcoin_price():
 
 
 curr_prices = get_latest_bitcoin_price()
+
+curr_time = datetime.datetime.now().strftime('%d-%b-%Y %I:%M %p')
+
+
+print(requests.post(IFTTT_URL + os.getenv('ifttt_api_key'),
+                    data={'value1': curr_time, 'value2': curr_prices['inr'], 'value3': curr_prices['usd']}).content.decode('ascii'))
