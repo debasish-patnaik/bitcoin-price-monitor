@@ -31,3 +31,5 @@ curr_prices['usd'] = str(curr_prices['usd']) + \
 if float(curr_prices['inr']) > 2920000.0:
     print(requests.post(IFTTT_URL + os.getenv('ifttt_api_key'),
                         data={'value1': curr_time, 'value2': curr_prices['inr'], 'value3': curr_prices['usd']}).content.decode('ascii'))
+else:
+    print("You're in loss!!! Pain!!")
