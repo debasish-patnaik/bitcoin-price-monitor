@@ -28,6 +28,6 @@ curr_prices = get_latest_crypto_prices()
 curr_prices['usd'] = str(curr_prices['usd']) + \
     '<br>Ethereum: <br>INR: ₹' + str(eth_price_in_inr)
 
-if float(curr_prices['inr']) < 3450000.0 or float(curr_prices['inr']) > 3500000:
+if float(curr_prices['inr']) < 3400000.0 or float(curr_prices['inr']) > 3450000:
     print(requests.post(IFTTT_URL + os.getenv('ifttt_api_key'),
                         data={'value1': curr_time, 'value2': curr_prices['inr'], 'value3': curr_prices['usd']}).content.decode('ascii'))
