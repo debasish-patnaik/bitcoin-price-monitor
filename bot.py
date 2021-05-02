@@ -30,11 +30,11 @@ curr_time = datetime.datetime.now(tz=istTZObject).strftime('%d-%b-%Y %I:%M %p')
 
 curr_prices = get_latest_crypto_prices()
 message_to_be_posted = "<b>Crypto Price Alert " + str(curr_time)
-message_to_be_posted += "</b><br><b>Bitcoin:</b><br><code><b>" + \
+message_to_be_posted += "</b><br><b>Bitcoin: </b><code><b>" + \
     str(curr_prices['bitcoin'])
-message_to_be_posted += "</b></code><br><b>Ethereum:</b><br><code><b>" + \
+message_to_be_posted += "</b></code><br><b>Ethereum: </b><code><b>" + \
     str(curr_prices['ethereum'])
-message_to_be_posted += "</b></code><br><b>DogeCoin:</b><br><code><b>" + \
+message_to_be_posted += "</b></code><br><b>DogeCoin: </b><code><b>" + \
     str(curr_prices['doge']) + "</b></code>"
 
 
